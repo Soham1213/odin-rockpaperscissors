@@ -46,3 +46,18 @@ function playRound(playerSelection, computerSelection) {
  
 console.log(playRound(playerSelection, computerSelection));
 
+function game() {
+    let roundWon = 0;
+    let roundLost = 0;
+    let RoundDrew =0;
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = getPlayerChoice();
+        console.log(playerSelection);
+        const computerSelection = getComputerChoice();
+        let result = playRound(playerSelection, computerSelection);
+        let determineWhoWon = result.slice(4,5);
+        console.log(determineWhoWon);
+        
+        console.log(result);
+    }
+}
