@@ -11,7 +11,7 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    let playerChoice = window.prompt("Enter your choice (rock, paper, or scissors): ");
+    let playerChoice = prompt("Enter your choice (rock, paper, or scissors): ");
     return playerChoice.toLowerCase();
 }
 
@@ -49,15 +49,25 @@ console.log(playRound(playerSelection, computerSelection));
 function game() {
     let roundWon = 0;
     let roundLost = 0;
-    let RoundDrew =0;
+    let roundDrew =0;
     for (let i = 0; i < 5; i++) {
         const playerSelection = getPlayerChoice();
         console.log(playerSelection);
         const computerSelection = getComputerChoice();
         let result = playRound(playerSelection, computerSelection);
-        let determineWhoWon = result.slice(4,5);
-        console.log(determineWhoWon);
-        
+        let str = result.slice(4,5);
+        console.log(str);
+        if (str == "d") {
+            roundDrew+= 1; 
+        } else if (str == "w") {
+            roundWon+= 1;
+        } else {
+            roundLost+= 1;
+        }
         console.log(result);
     }
+    console.log("You won " + roundWon + " times. You lost " + roundLost + " times. You drew " + roundDrew + " times.");
+    console.log("Your record (in W-L-D format): " + roundWon + "-" + roundLost + "-" + roundDrew);
 }
+
+game();
