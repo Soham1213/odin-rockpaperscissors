@@ -103,7 +103,7 @@ function determineWinner(){
 container.appendChild(result);
 container.appendChild(score);
 
-let choices = document.querySelectorAll('button');
+let choices = document.querySelectorAll('#button');
 choices.forEach((btn) => {
     btn.addEventListener('click', playRound);
 });
