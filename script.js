@@ -68,6 +68,6 @@ console.log(playRound(playerSelection, computerSelection));
     }
     console.log("You won " + roundWon + " times. You lost " + roundLost + " times. You drew " + roundDrew + " times.");
     console.log("Your record (in W-L-D format): " + roundWon + "-" + roundLost + "-" + roundDrew);
-} */ 
+}  
 
-game();
+game(); */
