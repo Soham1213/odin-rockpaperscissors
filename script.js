@@ -10,6 +10,7 @@ function getComputerChoice() {
     }
 }
 
+
 /* function getPlayerChoice() {
     let playerChoice = prompt("Enter your choice (rock, paper, or scissors): ");
     return playerChoice.toLowerCase();
@@ -20,9 +21,10 @@ function getComputerChoice() {
 console.log(playerSelection);
 const computerSelection = getComputerChoice(); */ 
 
-function playRound(playerSelection, computerSelection) {
-    let player = playerSelection;
-    let computer = computerSelection;
+
+function playRound(e) {
+    let player = e.srcElement.id;
+    let computer = getComputerChoice();
     if (player == "rock" && computer == "rock") {
         return "You drew! You both selected rock!";
     } else if (player == "rock" && computer == "paper") {
@@ -43,10 +45,16 @@ function playRound(playerSelection, computerSelection) {
         return "You drew! You both choose scissors!";
     }
 }
- 
-console.log(playRound(playerSelection, computerSelection));
 
-/* function game() {
+
+let choices = document.querySelectorAll('button');
+choices.forEach((btn) => {
+    btn.addEventListener('click', playRound);
+});
+
+/* console.log(playRound(playerSelection, computerSelection));
+
+function game() {
     let roundWon = 0;
     let roundLost = 0;
     let roundDrew =0;
