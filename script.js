@@ -20,15 +20,6 @@ function getComputerChoice() {
 console.log(playerSelection);
 const computerSelection = getComputerChoice(); */ 
 
-const container = document.querySelector('#text-container');
-
-const result = document.createElement('div');
-result.classList.add('result');
-// result.textContent = 'This is the glorious text-content!';
-
-const score = document.createElement('div');
-score.classList.add('score');
-
 function playRound(e) {
     let player = e.srcElement.id;
     let computer = getComputerChoice();
@@ -64,7 +55,7 @@ function playRound(e) {
 }
 
 function reportResult(response) {
-    result.textContent = response;
+    document.getElementById("results").innerHTML = response;
 }
 
 
@@ -81,7 +72,7 @@ function updateScore(result) {
         } else {
             roundLost+= 1;
         }
-    score.textContent = 'Rounds won: &{roundWon} | Rounds Lost: &{roundLost} | Rounds Drew: &{roundDrew}';
+    document.getElementById("scoreboard").innerHTML = 'Rounds won: &{roundWon} | Rounds Lost: &{roundLost} | Rounds Drew: &{roundDrew}';
     determineWinner();
 }
 
@@ -100,13 +91,10 @@ function determineWinner(){
     }
 }
 
-container.appendChild(result);
-container.appendChild(score);
-
-let choices = document.querySelectorAll('#button');
-choices.forEach((btn) => {
-    btn.addEventListener('click', playRound);
-});
+let buttons = document.querySelectorAll('.choices');
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", playRound);
+    });
 
 /* console.log(playRound(playerSelection, computerSelection));
 
