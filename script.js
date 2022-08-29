@@ -25,27 +25,56 @@ const computerSelection = getComputerChoice(); */
 function playRound(e) {
     let player = e.srcElement.id;
     let computer = getComputerChoice();
+    let result;
     if (player == "rock" && computer == "rock") {
-        return "You drew! You both selected rock!";
+        getScore("You drew! You both selected rock!");
     } else if (player == "rock" && computer == "paper") {
-        return "You lost! Paper beats rock!";
+        getScore("You lost! Paper beats rock!");
     } else if (player == "rock" && computer == "scissors") {
-        return "You won! Rock beats scissors!";
+        getScore("You won! Rock beats scissors!");
     } else if (player == "paper" && computer == "rock") {
-        return "You won! Paper beats rock!";
+        getScore("You won! Paper beats rock!");
     } else if (player == "paper" && computer == "paper") {
-        return "You drew! You both selected paper!";
+        getScore("You drew! You both selected paper!");
     } else if (player == "paper" && computer == "scissors") {
-        return "You lost! Paper beats scissors!";
+        getScore("You lost! Paper beats scissors!");
     } else if (player == "scissors" && computer && "rock") {
-        return "You lost! Rock beats paper!";
+        getScore("You lost! Rock beats paper!");
     } else if (player == "scissors" && computer && "paper") {
-        return "You won! Scissors beats paper!";
+        getScore("You won! Scissors beats paper!");
     } else {
-        return "You drew! You both choose scissors!";
+        getScore("You drew! You both choose scissors!");
     }
 }
 
+const container = document.querySelector('#text-container');
+
+const result = document.createElement('div');
+result.classList.add('result');
+// result.textContent = 'This is the glorious text-content!';
+
+const score = document.createElement('div');
+score.classList.add('score');
+
+let roundWon = 0;
+let roundLost = 0;
+let roundDrew =0;
+function getScore(result) {
+    let str = result.slice(4,5);
+        console.log(str);
+        if (str == "d") {
+            roundDrew+= 1; 
+        } else if (str == "w") {
+            roundWon+= 1;
+        } else {
+            roundLost+= 1;
+        }
+    score.textContent = 'Rounds won: &{roundWon} | Rounds Lost: &{roundLost} | Rounds Drew: &{roundDrew}' 
+    determineWinner();
+}
+
+container.appendChild(result);
+container.appendChild(score);
 
 let choices = document.querySelectorAll('button');
 choices.forEach((btn) => {
