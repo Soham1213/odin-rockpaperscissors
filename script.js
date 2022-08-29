@@ -10,7 +10,6 @@ function getComputerChoice() {
     }
 }
 
-
 /* function getPlayerChoice() {
     let playerChoice = prompt("Enter your choice (rock, paper, or scissors): ");
     return playerChoice.toLowerCase();
@@ -21,32 +20,6 @@ function getComputerChoice() {
 console.log(playerSelection);
 const computerSelection = getComputerChoice(); */ 
 
-
-function playRound(e) {
-    let player = e.srcElement.id;
-    let computer = getComputerChoice();
-    let result;
-    if (player == "rock" && computer == "rock") {
-        getScore("You drew! You both selected rock!");
-    } else if (player == "rock" && computer == "paper") {
-        getScore("You lost! Paper beats rock!");
-    } else if (player == "rock" && computer == "scissors") {
-        getScore("You won! Rock beats scissors!");
-    } else if (player == "paper" && computer == "rock") {
-        getScore("You won! Paper beats rock!");
-    } else if (player == "paper" && computer == "paper") {
-        getScore("You drew! You both selected paper!");
-    } else if (player == "paper" && computer == "scissors") {
-        getScore("You lost! Paper beats scissors!");
-    } else if (player == "scissors" && computer && "rock") {
-        getScore("You lost! Rock beats paper!");
-    } else if (player == "scissors" && computer && "paper") {
-        getScore("You won! Scissors beats paper!");
-    } else {
-        getScore("You drew! You both choose scissors!");
-    }
-}
-
 const container = document.querySelector('#text-container');
 
 const result = document.createElement('div');
@@ -56,10 +29,49 @@ result.classList.add('result');
 const score = document.createElement('div');
 score.classList.add('score');
 
+function playRound(e) {
+    let player = e.srcElement.id;
+    let computer = getComputerChoice();
+    let result;
+    if (player == "rock" && computer == "rock") {
+        reportResult("You drew! You both selected rock!");
+        updateScore("You drew! You both selected rock!");
+    } else if (player == "rock" && computer == "paper") {
+        reportResult("You lost! Paper beats rock!");
+        updateScore("You lost! Paper beats rock!");
+    } else if (player == "rock" && computer == "scissors") {
+        reportResult("You won! Rock beats scissors!");
+        updateScore("You won! Rock beats scissors!");
+    } else if (player == "paper" && computer == "rock") {
+        reportResult("You won! Paper beats rock!");
+        updateScore("You won! Paper beats rock!");
+    } else if (player == "paper" && computer == "paper") {
+        reportResult("You drew! You both selected paper!");
+        updateScore("You drew! You both selected paper!");
+    } else if (player == "paper" && computer == "scissors") {
+        reportResult("You lost! Paper beats scissors!");
+        updateScore("You lost! Paper beats scissors!");
+    } else if (player == "scissors" && computer && "rock") {
+        reportResult("You lost! Rock beats paper!");
+        updateScore("You lost! Rock beats paper!");
+    } else if (player == "scissors" && computer && "paper") {
+        reportResult("You won! Scissors beats paper!");
+        updateScore("You won! Scissors beats paper!");
+    } else {
+        reportResult("You drew! You both choose scissors!");
+        updateScore("You drew! You both choose scissors!");
+    }
+}
+
+function reportResult(response) {
+    result.textContent = response;
+}
+
+
 let roundWon = 0;
 let roundLost = 0;
-let roundDrew =0;
-function getScore(result) {
+let roundDrew = 0;
+function updateScore(result) {
     let str = result.slice(4,5);
         console.log(str);
         if (str == "d") {
@@ -69,7 +81,7 @@ function getScore(result) {
         } else {
             roundLost+= 1;
         }
-    score.textContent = 'Rounds won: &{roundWon} | Rounds Lost: &{roundLost} | Rounds Drew: &{roundDrew}' 
+    score.textContent = 'Rounds won: &{roundWon} | Rounds Lost: &{roundLost} | Rounds Drew: &{roundDrew}';
     determineWinner();
 }
 
