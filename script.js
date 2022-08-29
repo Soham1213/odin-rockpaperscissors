@@ -85,6 +85,21 @@ function updateScore(result) {
     determineWinner();
 }
 
+function determineWinner(){
+    if (roundWon == 5) {
+        alert("You won!");
+        roundWon = 0;
+        roundLost = 0;
+        roundDrew = 0;
+    }
+    if (roundLost == 5) {
+        alert("Computer won!");
+        roundWon = 0;
+        roundLost = 0;
+        roundDrew = 0;
+    }
+}
+
 container.appendChild(result);
 container.appendChild(score);
 
