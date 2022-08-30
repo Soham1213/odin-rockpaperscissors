@@ -54,8 +54,8 @@ function playRound(e) {
 }
 
 function reportResult(response) {
-    document.getElementById("results").innerHTML = response;
-    document.getElementById("scoreboard").innerHTML = 'Rounds won: &{roundWon} | Rounds Lost: &{roundLost} | Rounds Drew: &{roundDrew}';
+    document.getElementById("results").textContent = response;
+    document.getElementById("scoreboard").textContent = 'Rounds won: ' + roundWon + ' | Rounds Lost: ' + roundLost + ' | Rounds Drew: ' + roundDrew;
     determineWinner();
 }
 
