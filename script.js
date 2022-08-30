@@ -54,7 +54,9 @@ function playRound(e) {
 }
 
 function reportResult(response) {
-    document.getElementById("results").textContent = response;
+    const resultsContainer = document.querySelector('#results');
+    resultsContainer.textContent = response;
+    const scoreContainer = document.querySelector('#scoresboard');
     document.getElementById("scoreboard").textContent = 'Rounds won: ' + roundWon + ' | Rounds Lost: ' + roundLost + ' | Rounds Drew: ' + roundDrew;
     determineWinner();
 }
@@ -78,10 +80,10 @@ let roundWon = 0;
 let roundLost = 0;
 let roundDrew = 0;
 
-let buttons = document.querySelectorAll('button');
-    buttons.forEach((btn) => {
-        btn.addEventListener("click", playRound);
-    });
+const buttons = document.querySelectorAll('button');
+buttons.forEach((btn) => {
+    btn.addEventListener("click", playRound);
+});
 
 /* console.log(playRound(playerSelection, computerSelection));
 
