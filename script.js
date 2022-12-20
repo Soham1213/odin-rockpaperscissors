@@ -1,3 +1,13 @@
+
+let roundWon = 0;
+let roundLost = 0;
+let roundDrew = 0;
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((btn) => {
+    btn.addEventListener("click", playRound);
+});
+
 function getComputerChoice() {
     let x = Math.floor(Math.random() * 3);
     console.log(x);
@@ -10,41 +20,31 @@ function getComputerChoice() {
     }
 }
 
-/* function getPlayerChoice() {
-    let playerChoice = prompt("Enter your choice (rock, paper, or scissors): ");
-    return playerChoice.toLowerCase();
-} */ 
-
-
-/* const playerSelection = getPlayerChoice();
-console.log(playerSelection);
-const computerSelection = getComputerChoice(); */ 
-
 function playRound(e) {
-    let player = e.srcElement.id;
+    let player = btn.id;
     let computer = getComputerChoice();
-    if (player == "rock img" && computer == "rock") {
+    if (player == "rock" && computer == "rock") {
         roundDrew++;
         reportResult("You drew! You both selected rock!");
-    } else if (player == "rock img" && computer == "paper") {
+    } else if (player == "rock" && computer == "paper") {
         roundLost++;
         reportResult("You lost! Paper beats rock!");
-    } else if (player == "rock img" && computer == "scissors") {
+    } else if (player == "rock" && computer == "scissors") {
         roundWon++;
         reportResult("You won! Rock beats scissors!");
-    } else if (player == "paper img" && computer == "rock") {
+    } else if (player == "paper" && computer == "rock") {
         roundWon++;
         reportResult("You won! Paper beats rock!");
-    } else if (player == "paper img" && computer == "paper") {
+    } else if (player == "paper" && computer == "paper") {
         roundDrew++;
         reportResult("You drew! You both selected paper!");
-    } else if (player == "paper img" && computer == "scissors") {
+    } else if (player == "paper" && computer == "scissors") {
         roundLost++;
         reportResult("You lost! Paper beats scissors!");
-    } else if (player == "scissors img" && computer && "rock") {
+    } else if (player == "scissors" && computer && "rock") {
         roundLost++;
         reportResult("You lost! Rock beats paper!");
-    } else if (player == "scissors img" && computer && "paper") {
+    } else if (player == "scissors" && computer && "paper") {
         roundWon++;
         reportResult("You won! Scissors beats paper!");
     } else {
@@ -76,14 +76,15 @@ function determineWinner(){
     }
 }
 
-let roundWon = 0;
-let roundLost = 0;
-let roundDrew = 0;
+/* function getPlayerChoice() {
+    let playerChoice = prompt("Enter your choice (rock, paper, or scissors): ");
+    return playerChoice.toLowerCase();
+} */ 
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach((btn) => {
-    btn.addEventListener("click", playRound);
-});
+
+/* const playerSelection = getPlayerChoice();
+console.log(playerSelection);
+const computerSelection = getComputerChoice(); */ 
 
 /* console.log(playRound(playerSelection, computerSelection));
 
