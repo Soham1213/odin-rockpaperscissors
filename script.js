@@ -74,6 +74,9 @@ function determineWinner(){
     }
 }
 
+
+// Old game code
+
 /* function getPlayerChoice() {
     let playerChoice = prompt("Enter your choice (rock, paper, or scissors): ");
     return playerChoice.toLowerCase();
