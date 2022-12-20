@@ -23,28 +23,28 @@ const computerSelection = getComputerChoice(); */
 function playRound(e) {
     let player = e.srcElement.id;
     let computer = getComputerChoice();
-    if (player == "rock" && computer == "rock") {
+    if (player == "rock img" && computer == "rock") {
         roundDrew++;
         reportResult("You drew! You both selected rock!");
-    } else if (player == "rock" && computer == "paper") {
+    } else if (player == "rock img" && computer == "paper") {
         roundLost++;
         reportResult("You lost! Paper beats rock!");
-    } else if (player == "rock" && computer == "scissors") {
+    } else if (player == "rock img" && computer == "scissors") {
         roundWon++;
         reportResult("You won! Rock beats scissors!");
-    } else if (player == "paper" && computer == "rock") {
+    } else if (player == "paper img" && computer == "rock") {
         roundWon++;
         reportResult("You won! Paper beats rock!");
-    } else if (player == "paper" && computer == "paper") {
+    } else if (player == "paper img" && computer == "paper") {
         roundDrew++;
         reportResult("You drew! You both selected paper!");
-    } else if (player == "paper" && computer == "scissors") {
+    } else if (player == "paper img" && computer == "scissors") {
         roundLost++;
         reportResult("You lost! Paper beats scissors!");
-    } else if (player == "scissors" && computer && "rock") {
+    } else if (player == "scissors img" && computer && "rock") {
         roundLost++;
         reportResult("You lost! Rock beats paper!");
-    } else if (player == "scissors" && computer && "paper") {
+    } else if (player == "scissors img" && computer && "paper") {
         roundWon++;
         reportResult("You won! Scissors beats paper!");
     } else {
