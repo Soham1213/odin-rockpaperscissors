@@ -1,2 +1,2 @@
 # odin-rockpaperscissors
-I created a basic rock, paper, scissors game(User vs. Computer) using buttons and event listeners.
+AS part of The Odin Project course, I created a website that lets the user play Rock, Paper, Scissors against the Computer. 
