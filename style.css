@@ -32,6 +32,8 @@ body{
 
 .btn:hover{
     transform: scale(1.1);
+    filter: grayscale(1);
+    transition: .3s ease filter;
 }
 
 img{
@@ -42,9 +44,9 @@ img{
 footer {
     position: fixed;
     background-color: #1F2937;
-    padding: 24px;
+    padding: 12px;
     color: #F9FAF8;
-    font-size: 14px;
+    font-size: 18px;
     width: 100%;
     bottom: 0;
 }
