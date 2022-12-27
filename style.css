@@ -39,10 +39,6 @@ img{
     height: 200px;  
 }
 
-a:hover{
-    text-decoration: underline;
-}
-
 footer {
     position: fixed;
     background-color: #1F2937;
@@ -51,8 +47,4 @@ footer {
     font-size: 14px;
     width: 100%;
     bottom: 0;
-}
-
-.a:hover {
-    filter: grayscale(0);
 }
